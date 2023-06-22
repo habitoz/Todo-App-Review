@@ -2,13 +2,17 @@ const domContainer = document.getElementById('todo-list');
 
 const createDomList = (todo, editCb, removeCb) => {
   const listElement = document.createElement('li');
-  listElement.setAttribute('tabindex', todo.index);
-  listElement.setAttribute('draggable', true);
-  listElement.classList.add('list-item');
   const todoDescriptionContainer = document.createElement('div');
   const checkboxElement = document.createElement('input');
   const todoDescription = document.createElement('p');
   const todoDescriptionInput = document.createElement('input');
+  const moreElement = document.createElement('i');
+  const deleteElement = document.createElement('i');
+
+  listElement.setAttribute('tabindex', todo.index);
+  listElement.setAttribute('draggable', true);
+  listElement.classList.add('list-item');
+
   todoDescriptionInput.setAttribute('value', todo.description);
   todoDescriptionInput.classList.add('hide', 'descriptionInput');
   todoDescriptionContainer.classList.add('todo-description');
@@ -20,8 +24,6 @@ const createDomList = (todo, editCb, removeCb) => {
   todoDescriptionContainer.appendChild(checkboxElement);
   todoDescriptionContainer.appendChild(todoDescription);
   todoDescriptionContainer.appendChild(todoDescriptionInput);
-  const moreElement = document.createElement('i');
-  const deleteElement = document.createElement('i');
   moreElement.classList.add('fa-solid', 'fa-ellipsis-vertical', 'icon', 'show');
   deleteElement.classList.add('fa', 'fa-trash', 'icon', 'delete-icon', 'hide');
   deleteElement.addEventListener('click', () => {
